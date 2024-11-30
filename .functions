@@ -1,0 +1,21 @@
+function mytex(){
+	if [[ $# -eq 0 ]] ; then
+		echo "Error: No main latex file found"
+		echo "Usage: mytex <LATEX_MAIN_FILE>"
+	else
+		DIR=$(pwd)
+		MAIN=$1
+		FILE_EXTENSION=".tex"
+		echo "Monitoring directory: $DIR"
+		echo "Main file: $MAIN"
+		cd $DIR
+		fswatch -r $DIR | while read -r line
+		do
+			echo $line
+			if [[ $line == *$FILE_EXTENSION ]];
+			then
+				xelatex -interaction=nonstopmode $MAIN
+			fi
+		done
+	fi
+}

@@ -1,0 +1,4 @@
+export PATH=$(brew --prefix openssh)/bin:$PATH
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$PATH:$(go env GOPATH)/bin"
+export CDK_DOCKER="finch"

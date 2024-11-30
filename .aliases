@@ -1,0 +1,1 @@
+alias justdo="sudo $(fc -ln -1)"
